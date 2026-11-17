@@ -1,6 +1,6 @@
 #  Mic dB Overlay
 
-Een handige, minimalistische en transparante desktop-overlay voor Windows die real-time het volume van je microfoon (in decibel) weergeeft. Perfect voor streamers, tijdens online meetings, of om altijd een oogje (of oortje) te houden op je geluidsniveau.
+Een handige, minimalistische en transparante desktop-overlay voor Windows die real-time het volume van je microfoon (in decibel) weergeeft. Perfect voor streamers, tijdens online meetings, of om altijd een oogje (of oortje) te houden op je geluidsniveau, denk ook aan je slapende kinderen.
 
 Inclusief een slimme **Peak Hold**-logica zodat pieken netjes zichtbaar blijven, en dynamische kleurcodering (groen, oranje, rood) op basis van je drempelwaarden[cite: 1, 2].
 
