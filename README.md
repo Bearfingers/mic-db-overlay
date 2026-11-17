@@ -31,4 +31,4 @@ Als je de code wilt inzien of aanpassen:
 
 1. Clone deze repository:
    ```bash
-   git clone [https://github.com/jouw-gebruikersnaam/mic-db-overlay.git](https://github.com/jouw-gebruikersnaam/mic-db-overlay.git)
+   git clone [https://github.com/bearfingers/mic-db-overlay.git](https://github.com/bearfingers/mic-db-overlay.git)
