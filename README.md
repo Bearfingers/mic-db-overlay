@@ -20,7 +20,7 @@ Inclusief een slimme **Peak Hold**-logica zodat pieken netjes zichtbaar blijven,
 
 ## Hoe te gebruiken (Voor eindgebruikers)
 Wil je de tool alleen gebruiken zonder Python te installeren?
-1. Download de kant-en-klare `mic_db_overlay.exe` via de [Releases](https://github.com/JOUW-NIEUWE-USERNAME/mic-db-overlay/releases) pagina.
+1. Download de kant-en-klare `mic_db_overlay.exe` via de [Releases](https://github.com/Bearfingers/mic-db-overlay/releases)] pagina.
 2. Dubbelklik op het bestand om de overlay te starten.
 3. Druk op **Escape** op je toetsenbord om de overlay weer af te sluiten[cite: 1, 2].
 
