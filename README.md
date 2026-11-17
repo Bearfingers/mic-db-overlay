@@ -1,34 +1,72 @@
-#  Mic dB Overlay
+# Mic dB Overlay
 
-Een handige, minimalistische en transparante desktop-overlay voor Windows die real-time het volume van je microfoon (in decibel) weergeeft. Perfect voor streamers, tijdens online meetings, of om altijd een oogje (of oortje) te houden op je geluidsniveau, denk ook aan je slapende kinderen.
+Een handige, minimalistische en transparante desktop-overlay voor Windows die real-time het volume van je microfoon (in decibel) weergeeft.  
+Perfect voor streamers, online meetings, of om altijd een oogje te houden op je geluidsniveau (denk ook aan slapende kinderen).
 
-Inclusief een slimme **Peak Hold**-logica zodat pieken netjes zichtbaar blijven, en dynamische kleurcodering (groen, oranje, rood) op basis van je drempelwaarden[cite: 1, 2].
+Inclusief slimme **Peak Hold**-logica, dynamische kleurcodering en een instelbaar menu.
 
 ---
 
 ## Functies
-* **Real-time dB-meting:** Direct inzicht in je microfoonniveau via `sounddevice` en `numpy`[cite: 1, 2].
-* **Slimme Peak Hold:** Pieken blijven helder in beeld, zelfs als je stem daarna zachter wordt[cite: 1, 2].
-* **Visuele kleuraanduiding:** 
-  * 🟢 Normaal niveau (`#00FF00`)[cite: 1, 2]
-  * 🟠 Richting de drempel (`#FF9900`)[cite: 1, 2]
-  * 🔴 Boven de drempel / te luid (`#FF2222`)[cite: 1, 2]
-* **Transparante, borderloze overlay:** Staat altijd netjes bovenop (`topmost`) zonder storende vensterranden[cite: 1, 2].
-* **Eenvoudig af te sluiten:** Druk op **Escape** om de overlay direct te sluiten[cite: 1, 2].
+
+* **Real-time dB-meting** via `sounddevice` en `numpy`
+* **Slimme Peak Hold** – pieken blijven duidelijk zichtbaar
+* **Drie visualisatie-modi** (via rechtermuisknop-menu):
+  * Simpele balk
+  * Balk + piekindicator (standaard)
+  * LED-stijl (gesegmenteerde VU-meter)
+* **Visuele kleuraanduiding**:
+  * 🟢 Groen – normaal niveau
+  * 🟠 Oranje – richting de drempel
+  * 🔴 Rood – boven de drempel / te luid
+* **Instelbaar via rechtermuisknop-menu**:
+  * Offset (dB-kalibratie)
+  * Eigen drempels voor oranje en rood
+  * Positie van de overlay (linksboven, rechtsboven, linksonder, rechtsonder)
+  * Visualisatie-modus kiezen
+* **Instellingen worden opgeslagen** – blijven bewaard na herstart
+* **Transparante, borderloze overlay** die altijd bovenop blijft
+* **Afsluiten** met de `Escape`-toets
 
 ---
 
-## Hoe te gebruiken (Voor eindgebruikers)
-Wil je de tool alleen gebruiken zonder Python te installeren?
-1. Download de kant-en-klare `mic_db_overlay.exe` via de [Releases](https://github.com/Bearfingers/mic-db-overlay/releases)] pagina.
-2. Dubbelklik op het bestand om de overlay te starten.
-3. Druk op **Escape** op je toetsenbord om de overlay weer af te sluiten[cite: 1, 2].
+## Hoe te gebruiken (eindgebruikers)
+
+1. Download de nieuwste `mic_db_overlay.exe` via de [Releases](https://github.com/Bearfingers/mic-db-overlay/releases) pagina.
+2. Dubbelklik om de overlay te starten.
+3. **Rechtermuisknop** op de overlay → menu met alle instellingen.
+4. Druk op **Escape** om de overlay te sluiten.
+
+De instellingen worden automatisch opgeslagen in `mic_db_config.json` (naast de .exe).
 
 ---
 
-## Zelf aan de slag / Ontwikkeling (Voor developers)
-Als je de code wilt inzien of aanpassen:
+## Zelf aan de slag / Ontwikkeling
 
-1. Clone deze repository:
-   ```bash
-   git clone [https://github.com/bearfingers/mic-db-overlay.git](https://github.com/bearfingers/mic-db-overlay.git)
+### Vereisten
+- Python 3.9+
+- `sounddevice`
+- `numpy`
+- `pyinstaller` (alleen voor het bouwen van de .exe)
+
+### Installatie
+```bash
+git clone https://github.com/Bearfingers/mic-db-overlay.git
+cd mic-db-overlay
+pip install sounddevice numpy pyinstaller
+
+### Starten
+python mic_db_overlay.py
+
+### .exe bouwen
+pyinstaller mic_db_overlay.spec
+
+### Configuratie
+| Instelling | Standaard | Beschrijving |
+
+| kalibratie | 82.0 | dB-offset / baseline |
+| threshold_orange | 52.0 | Vanaf deze waarde oranje |
+| threshold_red | 63.0 | Vanaf deze waarde rood |
+| position | topleft | topleft / topright / bottomleft / bottomright |
+| viz_mode | peak | simple / peak / led |
+| margin | 20 | Afstand tot de rand van het scherm |
