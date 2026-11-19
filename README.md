@@ -1,72 +1,82 @@
 # Mic dB Overlay
 
-Een handige, minimalistische en transparante desktop-overlay voor Windows die real-time het volume van je microfoon (in decibel) weergeeft.  
-Perfect voor streamers, online meetings, of om altijd een oogje te houden op je geluidsniveau (denk ook aan slapende kinderen).
+A handy, minimalist and transparent desktop overlay for Windows that displays your microphone volume in real-time (in decibels).
 
-Inclusief slimme **Peak Hold**-logica, dynamische kleurcodering en een instelbaar menu.
+Perfect for streamers, online meetings, or simply keeping an eye on your audio levels (e.g. when children are sleeping).
 
----
+Includes smart Peak Hold logic, dynamic color coding and a fully configurable right-click menu.
 
-## Functies
+## Features
 
-* **Real-time dB-meting** via `sounddevice` en `numpy`
-* **Slimme Peak Hold** – pieken blijven duidelijk zichtbaar
-* **Drie visualisatie-modi** (via rechtermuisknop-menu):
-  * Simpele balk
-  * Balk + piekindicator (standaard)
-  * LED-stijl (gesegmenteerde VU-meter)
-* **Visuele kleuraanduiding**:
-  * 🟢 Groen – normaal niveau
-  * 🟠 Oranje – richting de drempel
-  * 🔴 Rood – boven de drempel / te luid
-* **Instelbaar via rechtermuisknop-menu**:
-  * Offset (dB-kalibratie)
-  * Eigen drempels voor oranje en rood
-  * Positie van de overlay (linksboven, rechtsboven, linksonder, rechtsonder)
-  * Visualisatie-modus kiezen
-* **Instellingen worden opgeslagen** – blijven bewaard na herstart
-* **Transparante, borderloze overlay** die altijd bovenop blijft
-* **Afsluiten** met de `Escape`-toets
+- Real-time dB measurement via `sounddevice` and `numpy`
+- Smart Peak Hold – peaks stay clearly visible
+- Three visualization modes (via right-click menu):
+  - Simple bar
+  - Bar + peak indicator (default)
+  - LED style (segmented VU meter)
+- Visual color coding:
+  - 🟢 Green – normal level
+  - 🟠 Orange – approaching the threshold
+  - 🔴 Red – above the threshold / too loud
+- Fully configurable via right-click menu:
+  - Offset (dB calibration)
+  - Custom orange & red thresholds
+  - Overlay position (top-left, top-right, bottom-left, bottom-right)
+  - Visualization mode
+  - **Language** (Dutch / English)
+  - **Font family & size**
+- Settings are saved – they persist after restart
+- Transparent, borderless overlay that always stays on top
+- Exit with the `Escape` key
 
----
+## How to use (end users)
 
-## Hoe te gebruiken (eindgebruikers)
+1. Download the latest `mic_db_overlay.exe` from the [Releases](https://github.com/Bearfingers/mic-db-overlay/releases) page.
+2. Double-click to start the overlay.
+3. Right-click the overlay → menu with all settings.
+4. Press `Escape` to close the overlay.
 
-1. Download de nieuwste `mic_db_overlay.exe` via de [Releases](https://github.com/Bearfingers/mic-db-overlay/releases) pagina.
-2. Dubbelklik om de overlay te starten.
-3. **Rechtermuisknop** op de overlay → menu met alle instellingen.
-4. Druk op **Escape** om de overlay te sluiten.
+Settings are automatically saved in `mic_db_config.json` (next to the .exe).
 
-De instellingen worden automatisch opgeslagen in `mic_db_config.json` (naast de .exe).
+## Development
 
----
+### Requirements
 
-## Zelf aan de slag / Ontwikkeling
-
-### Vereisten
 - Python 3.9+
 - `sounddevice`
 - `numpy`
-- `pyinstaller` (alleen voor het bouwen van de .exe)
+- `pyinstaller` (only needed for building the .exe)
 
-### Installatie
+### Installation
+
 ```bash
 git clone https://github.com/Bearfingers/mic-db-overlay.git
 cd mic-db-overlay
 pip install sounddevice numpy pyinstaller
+```
 
-### Starten
+### Run
+
+```bash
 python mic_db_overlay.py
+```
 
-### .exe bouwen
+### Build .exe
+
+```bash
 pyinstaller mic_db_overlay.spec
+```
 
-### Configuratie
-| Instelling | Standaard | Beschrijving |
+### Configuration
 
-| kalibratie | 82.0 | dB-offset / baseline |
-| threshold_orange | 52.0 | Vanaf deze waarde oranje |
-| threshold_red | 63.0 | Vanaf deze waarde rood |
-| position | topleft | topleft / topright / bottomleft / bottomright |
-| viz_mode | peak | simple / peak / led |
-| margin | 20 | Afstand tot de rand van het scherm |
+| Setting            | Default   | Description                                      |
+|--------------------|-----------|--------------------------------------------------|
+| kalibratie         | 82.0      | dB offset / baseline                             |
+| threshold_orange   | 52.0      | Turns orange from this value                     |
+| threshold_red      | 63.0      | Turns red from this value                        |
+| position           | topleft   | topleft / topright / bottomleft / bottomright    |
+| viz_mode           | peak      | simple / peak / led                              |
+| margin             | 20        | Distance from the edge of the screen             |
+| language           | nl        | nl / en                                          |
+| font_family        | Consolas  | Font family for the dB text                      |
+| font_size          | 12        | Font size                                        |
